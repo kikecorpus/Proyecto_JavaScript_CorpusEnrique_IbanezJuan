@@ -1,0 +1,26 @@
+:root {
+  --color-fondo: white; 
+  --color-fondo-oscuro: #B3B0B0; 
+
+  --color-sidebar: #fbf8f8;
+  --color-sidebar-oscuro: #565554;
+
+  --color-texto: #ffffff;
+  --color-texto2: black; 
+
+  --color-tarjeta: #FFF4E6;
+  --color-tarjeta-oscuro: #565554;
+  --color-tarjeta-oscuro2: #797979;
+
+  --color-componentes: #FF9000;
+  --color-componentes2: #A1A1A1;
+
+  --fuente-titulo: 'interSemiBold';
+  --fuente-cuerpo: 'interRegular';
+  --fuente-titulo-italic: 'interSemiBoldItalic';
+  --fuente-titulo-size: 32px;
+  --fuente-cuerpo-size: 24px;
+  --fuente-smallsize: 20px;
+
+}
+
