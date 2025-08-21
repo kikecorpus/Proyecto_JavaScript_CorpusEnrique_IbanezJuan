@@ -1,0 +1,33 @@
+.animation{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-componentes);
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+
+}
+
+.animation img {
+    width: 50vw;
+    animation: parpadeo 3s infinite;
+
+}
+
+.contenedorLogin{ 
+    animation: intro 5s ease-in-out;
+}
+
+@keyframes intro { 
+   0%{opacity:0;}
+  100%{opacity:1;}
+}
+
+
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
