@@ -1,0 +1,21 @@
+.btn-primary{ 
+    background-color: var(--color-componentes) !important ;
+    color: black !important;
+    border-color: var(--color-componentes) !important;
+    width: 10vw;
+}
+
+.btn-primary:hover{
+
+    background-color: var(--color-fondo) !important;
+    color: var(--color-componentes2) !important;
+    border-color: var(--color-componentes2) !important
+}
+
+.btn-primary:active{
+
+    background-color: var(--color-componentes) !important;
+    color: black !important;
+    border-color: var(--color-componentes) !important;
+
+}
