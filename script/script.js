@@ -13,6 +13,29 @@ let dataLogin = await respuesta.json();
 return dataLogin
 }
 
-
-let dataLogin = await fetchLogin()
+async function usuarios() {
+    
+    let dataLogin = await fetchLogin()
 console.log(dataLogin)
+
+let listaEstudiantes = dataLogin.filter(usuario => usuario.tipo === "estudiante")
+
+console.log(listaEstudiantes)
+
+
+let listaDocentes = dataLogin.filter(usuario => usuario.tipo === "docente")
+console.log(listaDocentes)
+
+let listaAdministradores = dataLogin.filter(usuario => usuario.tipo === "administrador")
+console.log(listaAdministradores)
+
+}
+
+
+
+
+
+//algoritmo
+usuarios()
+
+
