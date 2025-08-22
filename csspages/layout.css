@@ -1,0 +1,124 @@
+ *{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+ }
+
+/* index*/
+
+ body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+ }
+
+.contenedorDePagina{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100vw;
+    height: 100vh;
+}
+
+h2{ 
+    font-family:var(--fuente-titulo);
+    color: var(--color-texto2);
+    
+}
+
+/*side bar */
+
+.sidebar{
+display: flex;
+flex-direction: column;
+width: 30vw;
+height: 100vh;
+background-color: var(--color-sidebar);
+align-items: center;
+gap: 4rem;
+padding: 3rem 0;
+}
+
+.sidebar nav {
+    width: 100%;
+    align-items: center;
+}
+
+.sidebar nav div{
+
+    background-color: var(--color-componentes2);
+    border: 1px solid black;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--color-texto);
+    border-bottom: 0.5px solid black;
+}
+
+/* principal*/
+
+.principal { 
+
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+
+}
+    /* encabezado*/ 
+
+.encabezado{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+   
+}
+
+.navegadores{
+    display:flex ;
+    flex-direction: row;
+    gap: 10rem;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    padding-right: 10rem;
+}
+
+.navbar{
+display: flex;
+flex-direction: row;
+width: 100%;
+background-color: none; 
+
+
+}
+
+.pages {
+    display: flex;
+    flex-direction: row ;
+    gap: 3rem;
+}
+
+.botonesH {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+
+.navegadores p, .navegadores a{
+    margin: 0;
+    font-size: var(--fuente-titulo-size) !important;
+}
+
+.navegadores img {
+    width: 2rem;
+}
+
+    /*cuerpo*/
+.cuerpo{
+
+
+    
+}

@@ -3,7 +3,6 @@
     margin: 0;
  }
 
-
 /* index*/
 
  body {
@@ -38,4 +37,10 @@ h2{
 
 .form-floating { 
     width: 50%;
+}
+
+/*side bar */
+
+.diminutivo{
+width: 10vw;
 }
