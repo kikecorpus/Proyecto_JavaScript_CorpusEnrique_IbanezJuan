@@ -41,6 +41,9 @@ padding: 3rem 0;
 }
 
 .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     width: 100%;
     align-items: center;
 }
@@ -56,6 +59,21 @@ padding: 3rem 0;
     color: var(--color-texto);
     border-bottom: 0.5px solid black;
 }
+
+.contenedorDeGrafica{
+
+    background: none !important; 
+    border: none !important;
+}
+
+/*grafica*/
+canvas{ 
+    width:20Vw;
+    height: 15vw;
+    border: 1px solid black;
+}
+
+
 
 /* principal*/
 
@@ -133,8 +151,6 @@ background-color: none;
 
     overflow: auto;
    
-   
-
 }
 
 .dashboard{

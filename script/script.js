@@ -11,15 +11,21 @@ let listaDocentes = [];
 let perfil = ""
 let usuarioEncontrado = {}
 
-    //elementos
+    //login
 let inputTipoUsuario = document.getElementById("floatingSelect");
 let inputUsuario = document.getElementById("floatingInput");
 let inputContrasena = document.getElementById("floatingPassword");
 let botonIngresar = document.getElementById("ingresar");
+    //tablas
 let tablaEstudiante = document.getElementById("tablaEstudiantes");
+    //grafica panel
+const canvas = document.getElementById("grafica");
+let  contexto2D = canvas.getContext("2d");
 
 
 //creacion de sistema de informacion 
+
+//estudiantes admin y docentes
 async function fetchLogin(){
 
 
@@ -102,10 +108,39 @@ function estudiantesInscritos(){
   
 }
 
+//graficas
+
+function verGrafica(){
+
+const inscripciones = [3, 5, 7, 15];
+const meses = ["May", "Jun",  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+    const ancho = canvas.width;
+    const alto = canvas.height;
+    const grosorDeBarra = ancho / inscripciones.length - 5;
+
+    inscripciones.forEach((valor, i) => {
+      let  x = i * (grosorDeBarra + 5);
+      let  h = valor * 5;
+      let  y = alto - h;
+
+      contexto2D.fillStyle = "#777272ff";
+      contexto2D.fillRect(x, y, grosorDeBarra, h);
+
+      contexto2D.fillStyle = "#ffffffff";
+      contexto2D.font = "10px Arial";
+      contexto2D.fillText(meses[i], x + grosorDeBarra / 4, alto - 5);
+
+      contexto2D.fillStyle = "#FF9000";
+      contexto2D.fillText(valor, x + ancho / 10, y -5);
+  })
+    }
+
+
 //algoritmo
 
 await usuarios();
 estudiantesInscritos()
+verGrafica()
 botonIngresar.addEventListener("click",login)
 
 
