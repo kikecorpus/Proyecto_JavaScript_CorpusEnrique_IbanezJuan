@@ -119,6 +119,38 @@ background-color: none;
     /*cuerpo*/
 .cuerpo{
 
-
-    
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: left;
 }
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-top: 4rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    text-align: center;
+
+}
+
+/*sidebar Cuerpo */
+
+.sidebarCuerpo{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-items: center;
+    padding-right: 4rem;
+    padding-top: 4rem;
+    gap: 3rem;
+}
+
+.cuadroEstadistica{
+
+    background-color: var(--color-tarjeta);
+    text-align: center;
+}
+
