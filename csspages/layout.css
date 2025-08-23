@@ -24,7 +24,7 @@
 h2{ 
     font-family:var(--fuente-titulo);
     color: var(--color-texto2);
-    
+    font-size: var(--fuente-titulo-size);
 }
 
 /*side bar */
@@ -98,6 +98,7 @@ background-color: none;
     display: flex;
     flex-direction: row ;
     gap: 3rem;
+  
 }
 
 .botonesH {
@@ -110,10 +111,11 @@ background-color: none;
 .navegadores p, .navegadores a{
     margin: 0;
     font-size: var(--fuente-titulo-size) !important;
+    font-family: var(--fuente-titulo-italic);
 }
 
 .navegadores img {
-    width: 2rem;
+    width: 1.5rem;
 }
 
     /*cuerpo*/
@@ -133,7 +135,7 @@ background-color: none;
     padding-right: 2rem;
     padding-left: 2rem;
     text-align: center;
-
+align-items: center;
 }
 
 /*sidebar Cuerpo */
@@ -141,16 +143,48 @@ background-color: none;
 .sidebarCuerpo{
     display: flex;
     flex-direction: column;
-    width: 30%;
-    justify-items: center;
+    width: 30%;    
     padding-right: 4rem;
     padding-top: 4rem;
     gap: 3rem;
+    text-align: center;
 }
 
+.estadisticas{
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+table{
+    margin-top: 0.6rem;
+}
+
+table img {
+    border-radius: 50%;
+}
+
+    /* cuadro estadistica*/
 .cuadroEstadistica{
 
     background-color: var(--color-tarjeta);
     text-align: center;
 }
+
+.cuadroEstadistica p {
+
+    margin: 0;
+}
+
+.titulito{
+      font-weight: bold;
+}
+
+.infoEstadistica { 
+
+    font-size: var(--fuente-titulo-size);
+
+}
+
 

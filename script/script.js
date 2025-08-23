@@ -1,6 +1,6 @@
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
@@ -26,7 +26,7 @@ const respuesta = await fetch("https://68a35617c5a31eb7bb1ff133.mockapi.io/Acade
 }
 });
 
-let dataLogin = await respuesta.json();
+dataLogin = await respuesta.json();
 return dataLogin;
 };
 
@@ -48,7 +48,11 @@ console.log(listaAdministradores);
 
 };
 
-function login(){
+async function login(){
+
+    if (dataLogin.length === 0) {
+        await usuarios();
+    }
 
 perfil = inputTipoUsuario.value;
 let usuario = inputUsuario.value;
@@ -60,23 +64,19 @@ let contrasena = inputContrasena.value;
     usuarioEncontrado = listaAdministradores.find(u => (u.usuario === usuario) && (u.contrasena === contrasena) )
     
     if (usuarioEncontrado) {
-
+    console.log("credenciales incorrecta")
+    window.location.href = "../pages/panel.html";
         console.log("ingreso exitoso")
     }
-
-    else{
-        console.log("credenciales incorrecta")
     }
 
  }
 
-}
 
 //algoritmo
-usuarios();
+
+await  usuarios();
 botonIngresar.addEventListener("click",login)
-
-
 
 
 });
