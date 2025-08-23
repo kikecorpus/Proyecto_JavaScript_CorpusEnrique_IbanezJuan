@@ -16,6 +16,9 @@ let inputTipoUsuario = document.getElementById("floatingSelect");
 let inputUsuario = document.getElementById("floatingInput");
 let inputContrasena = document.getElementById("floatingPassword");
 let botonIngresar = document.getElementById("ingresar");
+let tablaEstudiante = document.getElementById("tablaEstudiantes");
+
+
 //creacion de sistema de informacion 
 async function fetchLogin(){
 
@@ -73,9 +76,36 @@ let contrasena = inputContrasena.value;
  }
 
 
+function estudiantesInscritos(){
+
+    
+
+    try {
+     
+      listaEstudiantes.forEach((usuario, index) => {
+    const filaEstudiante = document.createElement("tr");
+
+        filaEstudiante.innerHTML = `
+          <td> ${index + 1}</td>
+          <td><img src="${usuario.foto}" width="30"></td>
+           <td>${usuario.nombre}</td>
+          <td>${usuario.identificacion}</td>
+          <td>${usuario.tipo}</td>
+          <td>${usuario.usuario}</td>
+        `;
+
+        tablaEstudiante.appendChild(filaEstudiante);
+      });
+    } catch (error) {
+      console.error("Error al traer usuarios:", error);
+    }
+  
+}
+
 //algoritmo
 
-await  usuarios();
+await usuarios();
+estudiantesInscritos()
 botonIngresar.addEventListener("click",login)
 
 
