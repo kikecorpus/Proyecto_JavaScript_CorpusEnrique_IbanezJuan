@@ -22,10 +22,28 @@ let tablaEstudiante = document.getElementById("tablaEstudiantes");
 const canvas = document.getElementById("grafica");
 let  contexto2D = canvas.getContext("2d");
 
-
 //creacion de sistema de informacion 
+    //link api respuesta completa 
 
-//estudiantes admin y docentes
+const mockApiBase =  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400";
+
+  // --- Funciones de Fetch ---
+  async function fetchEstudiantes() {
+    const data = await fetch(`${mockApiBase}/estudiantes`);
+    return await data.json();
+  }
+
+  async function fetchDocentes() {
+    const data = await fetch(`${mockApiBase}/docentes`);
+    return await data.json();
+  }
+
+  async function fetchAdministradores() {
+    const data = await fetch(`${mockApiBase}/administradores`);
+    return await data.json();
+  }
+
+  //login 
 async function fetchLogin(){
 
 
@@ -39,23 +57,6 @@ dataLogin = await respuesta.json();
 return dataLogin;
 };
 
-async function usuarios() {
-    
-dataLogin = await fetchLogin();
-console.log(typeof(dataLogin) );
-
-listaEstudiantes = dataLogin.filter(usuario => usuario.tipo === "estudiante");
-
-console.log(listaEstudiantes);
-
-
-listaDocentes = dataLogin.filter(usuario => usuario.tipo === "docente");
-console.log(listaDocentes);
-
-listaAdministradores = dataLogin.filter(usuario => usuario.tipo === "administrador");
-console.log(listaAdministradores);
-
-};
 
 async function login(){
 
@@ -84,8 +85,6 @@ let contrasena = inputContrasena.value;
 
 function estudiantesInscritos(){
 
-    
-
     try {
      
       listaEstudiantes.forEach((usuario, index) => {
@@ -112,8 +111,8 @@ function estudiantesInscritos(){
 
 function verGrafica(){
 
-const inscripciones = [3, 5, 7, 15];
-const meses = ["May", "Jun",  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+    const inscripciones = [3, 5, 7, 15];
+    const meses = ["May", "Jun",  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
     const ancho = canvas.width;
     const alto = canvas.height;
     const grosorDeBarra = ancho / inscripciones.length - 5;
@@ -123,17 +122,17 @@ const meses = ["May", "Jun",  "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
       let  h = valor * 5;
       let  y = alto - h;
 
-      contexto2D.fillStyle = "#777272ff";
-      contexto2D.fillRect(x, y, grosorDeBarra, h);
+    contexto2D.fillStyle = "#777272ff";
+    contexto2D.fillRect(x, y, grosorDeBarra, h);
 
-      contexto2D.fillStyle = "#ffffffff";
-      contexto2D.font = "10px Arial";
-      contexto2D.fillText(meses[i], x + grosorDeBarra / 4, alto - 5);
+    contexto2D.fillStyle = "#ffffffff";
+    contexto2D.font = "10px Arial";
+    contexto2D.fillText(meses[i], x + grosorDeBarra / 4, alto - 5);
 
-      contexto2D.fillStyle = "#FF9000";
-      contexto2D.fillText(valor, x + ancho / 10, y -5);
+    contexto2D.fillStyle = "#f3c548ff";
+    contexto2D.fillText(valor, x + ancho / 10, y -5);
   })
-    }
+}
 
 
 //algoritmo
