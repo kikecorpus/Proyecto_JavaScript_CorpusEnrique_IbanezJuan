@@ -4,13 +4,10 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
-let data= [];
-let listaAdministradores = [];
-let listaEstudiantes = [];
-let listaDocentes = [];
+let cursos = [];
 
     //tablas
-let tablaEstudiante = document.getElementById("tablaEstudiantes");
+let tablaCursos = document.getElementById("tablaCursos");
     //grafica panel
 const canvas = document.getElementById("grafica");
 let  contexto2D = canvas.getContext("2d");
@@ -18,11 +15,11 @@ let  contexto2D = canvas.getContext("2d");
 //creacion de sistema de informacion 
     //link api respuesta completa 
 
-const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios";
+const url=  "https://68aab3e1909a5835049ccc4f.mockapi.io/cursos";
 
   // Funciones de Fetch
 
-  async function fetchData() {
+  async function fetchCursos() {
         const res = await fetch(url, {
             method: 'GET',
             headers: {
@@ -31,39 +28,32 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
         });
 
 
-        data = await res.json();
+        cursos = await res.json();
 
-        console.log(data)
+        console.log(cursos);
 
 
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
-        console.log(listaEstudiantes)
     }   
 
 
-function estudiantesInscritos(){
+function listadoCursos(){
 
     try {
      
-      listaEstudiantes.forEach((usuario, index) => {
-    const filaEstudiante = document.createElement("tr");
-
-        filaEstudiante.innerHTML = `
+      cursos.forEach((curso, index) => {
+    const filaCurso = document.createElement("tr");
+        console.log(curso)
+        filaCurso.innerHTML = `
           <td> ${index + 1}</td>
-          <td><img src="${usuario.foto}" width="30"></td>
-           <td>${usuario.nombre}</td>
-          <td>${usuario.identificacion}</td>
-          <td>Estudiante</td>
-          <td>${usuario.usuario}</td>
+          <td><img src="${curso.foto}" width="30"></td>
+           <td>${curso.nombre}</td>
+          <td>${curso.docente}</td>
+          <td>${curso.categoria}</td>
+          <td><img src="../../recursos/img/componentes/arrow-right-square-fill.svg" alt=" id="botonFlecha"></td>
+          
         `;
 
-        tablaEstudiante.appendChild(filaEstudiante);
+        tablaCursos.appendChild(filaCurso);
       });
     } catch (error) {
       console.error("Error al traer usuarios:", error);
@@ -100,8 +90,8 @@ function verGrafica(){
 
 //algoritmo
 
-await fetchData();
-estudiantesInscritos()
+await fetchCursos();
+listadoCursos()
 verGrafica()
 
 });
