@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', async() => {
 let cursos = [];
 let filaModulo = ""
 let modulos =[]
-    //tablas calistenia
-let tablaLecciones = document.getElementById("tablaLecciones");
-let contenedorModulos = document.getElementById("contenedorModulos")
+
+
+  //tablas Street Workout
+let tablaLeccionesSw = document.getElementById("tablaLeccionesSw");
+let contenedorModulosSw = document.getElementById("contenedorModulosSw")
+
 
 
 //creacion de sistema de informacion 
@@ -36,15 +39,17 @@ const url=  "https://68aab3e1909a5835049ccc4f.mockapi.io/cursos";
 
     //modulos y lecciones
 
-    //calistenia
-    function listadoModulo(){
+ 
+    //streetWorkout
+    function listadoModuloSW(){
 
-      const calistenia = cursos[0];
+      const calistenia = cursos[1];
       console.log(calistenia);
       modulos = calistenia.modulos;
       console.log(modulos); 
       modulos.forEach(modulo =>  {
-       filaModulo = document.createElement("div");
+       
+        filaModulo = document.createElement("div");
 
         filaModulo.classList.add("nav-link")
 
@@ -56,19 +61,18 @@ const url=  "https://68aab3e1909a5835049ccc4f.mockapi.io/cursos";
         `;
 
         filaModulo.addEventListener("click", () => {
-            listadoLecciones(modulo);
+            listadoLeccionesSw(modulo);
         });
 
-        contenedorModulos.appendChild(filaModulo);
+        contenedorModulosSw.appendChild(filaModulo);
         
       });
 
   
     }
+        function listadoLeccionesSw(modulo) {
 
-    function listadoLecciones(modulo) {
-
-      tablaLecciones.innerHTML = `
+      tablaLeccionesSw.innerHTML = `
         <tr>
         
         </tr>
@@ -82,15 +86,16 @@ const url=  "https://68aab3e1909a5835049ccc4f.mockapi.io/cursos";
             <td>${leccion.fechaInicio}</td>
             <td>${leccion.fechaFin}</td>
         `;
-        tablaLecciones.appendChild(fila);
+        tablaLeccionesSw.appendChild(fila);
     });
 }
+
 
 
 //algoritmo
 
 await fetchCursos();
-listadoModulo(); 
+listadoModuloSW(); 
 ;
 });
 
