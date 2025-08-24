@@ -3,7 +3,7 @@
     padding: 0;
     margin: 0;
  }
-
+                    /*PAnel */
 /* index*/
 
  body {
@@ -147,7 +147,6 @@ background-color: none;
 .contenedorDeTabla{
     width: 100%;
     height:  30rem;
-
     overflow: auto;
    
 }
@@ -216,3 +215,42 @@ table img {
 }
 
 
+
+                                    /* curso calistenia*/
+
+.portadaCurso {
+    overflow: hidden;
+    width: 100%;
+    height: 10rem;
+    border-radius: 30px;
+    position: relative;  
+}
+
+
+.portadaCurso img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 0; 
+}
+
+.portadaCurso h2 {
+    position: absolute;
+    top: 45%;       
+    left: 42%;       
+    z-index: 1;
+    color: white;     
+    font-weight: bold;
+    margin: 0;
+}
+
+.descripcion {
+    margin-top: 1rem;
+    text-align: justify;
+}
+.contenedorDeTablaL{
+    width: 100%;
+    height:  12rem;
+    overflow: auto;   
+}

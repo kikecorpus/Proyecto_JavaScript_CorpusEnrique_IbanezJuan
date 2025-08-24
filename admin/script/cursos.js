@@ -1,5 +1,4 @@
 
-
 document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
@@ -60,6 +59,7 @@ function listadoCursos(){
     }
   
 }
+
 
 //graficas
 
