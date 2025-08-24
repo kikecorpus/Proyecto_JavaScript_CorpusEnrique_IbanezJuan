@@ -48,9 +48,15 @@ function listadoCursos(){
            <td>${curso.nombre}</td>
           <td>${curso.docente}</td>
           <td>${curso.categoria}</td>
-          <td><img src="../../recursos/img/componentes/arrow-right-square-fill.svg" alt=" id="botonFlecha"></td>
+          <td><img src="../../recursos/img/componentes/arrow-right-square-fill.svg" alt="" class="botonFlecha"></td>
           
         `;
+        
+      const flecha = filaCurso.querySelector(".botonFlecha");
+      flecha.addEventListener("click", () => {
+        window.location.href = curso.url;
+      });
+
 
         tablaCursos.appendChild(filaCurso);
       });
