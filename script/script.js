@@ -87,8 +87,9 @@ async function login(){
         //validacion
         if (usuarioEncontrado) {
             let usuarioId = usuarioEncontrado.id;
-        window.location.href = `./Proyecto_JavaScript_IbanezJuan/admin/panel.html?id="${usuarioId}"`; 
+        window.location.href = `../admin/panel.html?id=""`; 
             console.log("ingreso exitoso")
+
         }
         else {
         console.log("Credenciales incorrectas");
