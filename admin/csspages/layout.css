@@ -254,3 +254,33 @@ table img {
     height:  12rem;
     overflow: auto;   
 }
+
+
+/* perfil docente*/
+/* cuadro de informacion*/
+
+.contenedorPerfil{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+.fotoPerfil, .infoPerfil{
+
+    background-color: var(--color-tarjeta);
+    width: 95%;
+    height: 10rem;
+    border-radius: 1.5rem;
+}
+
+.fotoPerfil{
+
+    display: flex;
+    flex-direction: row;
+    height: 15rem;
+    text-align: left;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+}
