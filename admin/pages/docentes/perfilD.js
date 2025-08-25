@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
-let data= []
-let listaAdministradores = [];
-let listaEstudiantes = [];
+
 let listaDocentes = [];
 
 //cuadros de informacion
@@ -14,16 +12,18 @@ let cuadroFPerfil = document.getElementById("fotoPerfil");
 
 let cuadroInfoP = document.getElementById("infoPerfil")
 
+const params = new URLSearchParams(window.location.search);
+  let docenteId = params.get("id");
 
 //creacion de sistema de informacion 
     //link api respuesta completa 
 
-const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios";
+let url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/docentes";
 
   // Funciones de Fetch
 
-  async function fetchData() {
-        const res = await fetch(url, {
+  async function fetchDocente() {
+        const res = await fetch(`${url}/${docenteId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,38 +31,25 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
         });
 
 
-        data = await res.json();
+        listaDocentes= await res.json();
 
-        console.log(data)
+        console.log(listaDocentes)
 
-
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
-        console.log(listaEstudiantes)
     }   
 
-function PerfilDocentes(){
+await fetchDocente();
 
     try {
-     
-      listaDocentes.forEach((docente) => {
-
-
-        console.log(docente)
+         console.log(listaDocentes)
         cuadroFPerfil.innerHTML = `
-          <div><img class="fp" src="${docente.foto}" width="200" style="border-radius: 50%;" ">
+          <div><img class="fp" src="${listaDocentes.foto}" width="200" style="border-radius: 50%;" ">
           </div>
           
           <div>
-            <p> Nombre: ${docente.nombre} </p>
-            <p> Usuario: ${docente.usuario} </p>
-            <p> Fecha de inicio: ${docente.fechaInicio}</p>
-            <p> Estado: ${docente.estado}</p>
+            <p> Nombre: ${listaDocentes.nombre} </p>
+            <p> Usuario: ${listaDocentes.usuario} </p>
+            <p> Fecha de inicio: ${listaDocentes.fechaInicio}</p>
+            <p> Estado: ${listaDocentes.estado}</p>
           </div>
         `;
 
@@ -78,7 +65,7 @@ function PerfilDocentes(){
             </thead>
 
             <tbody id="tablaCursos">
-             <td>${docente.cursosACargo[0]}, ${docente.cursosACargo[1]}</td>
+             <td>${listaDocentes.cursosACargo[0]}, ${listaDocentes.cursosACargo[1]}</td>
               
               <td>30</td>
               <td>6</td>
@@ -90,28 +77,14 @@ function PerfilDocentes(){
          
         
         `
-        
-      const flecha = filaCurso.querySelector(".botonFlecha");
-      flecha.addEventListener("click", () => {
-        window.location.href = docente.url;
-      });
 
-
-        tablaCursos.appendChild(filaCurso);
-      });
-    } catch (error) {
+  
+    } 
+    
+    catch (error) {
       console.error("Error al traer usuarios:", error);
     }
-  
-}
 
-
-
-//algoritmo
-
-await fetchData();
-PerfilDocentes()
-verGrafica()
 
 });
 
