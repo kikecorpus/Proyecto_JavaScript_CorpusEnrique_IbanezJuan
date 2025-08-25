@@ -3,27 +3,27 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
-let data= []
-let listaAdministradores = [];
-let listaEstudiantes = [];
-let listaDocentes = [];
-
+let estudiante = [];
 //cuadros de informacion
 
 let cuadroFPerfil = document.getElementById("fotoPerfil");
 
 let cuadroInfoP = document.getElementById("infoPerfil")
 
+let params = new URLSearchParams(window.location.search
+);
+let estudianteId = params.get("id")
 
 //creacion de sistema de informacion 
     //link api respuesta completa 
+
 
 const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios";
 
   // Funciones de Fetch
 
-  async function fetchData() {
-        const res = await fetch(url, {
+  async function fetchEstudiantes() {
+        const res = await fetch(`${url}/${estudianteId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,29 +31,17 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
         });
 
 
-        data = await res.json();
-
-        console.log(data)
-
-
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
-        console.log(listaEstudiantes)
-    }   
-
-function PerfilDocentes(){
-
-    try {
-     
-      listaEstudiantes.forEach((estudiante) => {
-
+        estudiante = await res.json();
 
         console.log(estudiante)
+
+
+    }   
+
+  await fetchEstudiantes();
+
+    try {
+
         cuadroFPerfil.innerHTML = `
           <div><img class="fp" src="${estudiante.foto}" width="200" style="border-radius: 50%;" ">
           </div>
@@ -82,34 +70,27 @@ function PerfilDocentes(){
              <td>${estudiante.cursosCompletados}</td>
               <td>6</td>
               
-
                 
             </tbody>
              
               
             </table>
          
-        
         `
-        
-    
-
-
-        tablaCursos.appendChild(filaCurso);
-      });
+      
     } catch (error) {
       console.error("Error al traer usuarios:", error);
     }
   
-}
 
 
 
-//algoritmo
 
-await fetchData();
-PerfilDocentes()
-verGrafica()
+
+
+
+
+
 
 });
 

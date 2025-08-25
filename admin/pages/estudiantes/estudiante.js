@@ -9,7 +9,7 @@ let listaEstudiantes = [];
 let listaDocentes = [];
 
     //tablas
-let tablaEstudiante = document.getElementById("tablaCursos");
+let tablaEstudiante = document.getElementById("tablaEstudiantes");
     //grafica panel
 const canvas = document.getElementById("grafica");
 let  contexto2D = canvas.getContext("2d");
@@ -21,7 +21,7 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
 
   // Funciones de Fetch
 
-  async function fetchData() {
+  async function fetchEstudiantes() {
         const res = await fetch(url, {
             method: 'GET',
             headers: {
@@ -29,20 +29,11 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
             }
         });
 
-
-        data = await res.json();
-
-        console.log(data)
-
-
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
+        listaEstudiantes = await res.json();
         console.log(listaEstudiantes)
+
+
+        
     }   
 
 
@@ -64,7 +55,7 @@ function estudiantesInscritos(){
 
         const flecha = filaEstudiante.querySelector(".botonFlecha");
         flecha.addEventListener("click", () => {
-        window.location.href = "./perfilEstudiante.html";
+        window.location.href = `./perfilEstudiante.html?id=${usuario.id}`;
       });
 
         tablaEstudiante.appendChild(filaEstudiante);
@@ -72,9 +63,7 @@ function estudiantesInscritos(){
     } catch (error) {
       console.error("Error al traer usuarios:", error);
     }
-  
 }
-
 
 
 //graficas
@@ -106,7 +95,7 @@ function verGrafica(){
 
 //algoritmo
 
-await fetchData();
+await fetchEstudiantes();
 estudiantesInscritos()
 verGrafica()
 
