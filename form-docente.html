@@ -30,7 +30,7 @@
   <center>
     <h1 class="display-6">Inscripción Docentes</h1>
   </center>
-
+  
     <form id="formInscripcionDocentes">
     <div class="row g-2" style="margin-left: 12px; margin-right: 12px">
       
@@ -74,3 +74,14 @@
       <button type="submit" class="btn btn-primary btn-buttom-right">Aceptar</button>
     </div>
   </form>
+
+
+  
+    <script>
+    document.getElementById("formInscripcionDocentes")
+      .addEventListener("submit", function (event) {
+        location.reload();
+      });
+  </script>
+</body>
+</html>
