@@ -1,0 +1,16 @@
+
+      .btn-buttom-left {
+        left: 20px;
+        bottom: 20px;
+        position: fixed;
+        width: 20%;
+      }
+      .btn-buttom-right {
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        width: 50%;
+        background: #FF9000;
+background: linear-gradient rgba(255, 144, 0, 1)
+      }
+    
