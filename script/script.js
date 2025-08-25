@@ -86,9 +86,10 @@ async function login(){
     
         //validacion
         if (usuarioEncontrado) {
-        
-        window.location.href = "../admin/panel.html";
+            let usuarioId = usuarioEncontrado.id;
+        window.location.href = `./admin/panel.html?id="${usuarioId}"`; 
             console.log("ingreso exitoso")
+
         }
         else {
         console.log("Credenciales incorrectas");
@@ -101,7 +102,7 @@ async function login(){
       //validacion
     if (usuarioEncontrado) {
     console.log("credenciales incorrecta")
-    window.location.href = "../pages/panel.html";
+    window.location.href = '../pages/panel.html';
         console.log("ingreso exitoso")
     }
      else {

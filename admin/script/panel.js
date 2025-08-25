@@ -19,7 +19,6 @@ let  contexto2D = canvas.getContext("2d");
 
   // Funciones de Fetch
 
-
 async function fetchEstudiantes() {
         const res = await fetch("https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios", {
             method: 'GET',
