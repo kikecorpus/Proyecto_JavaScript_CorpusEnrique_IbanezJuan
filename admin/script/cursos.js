@@ -54,7 +54,7 @@ function listadoCursos(){
         
       const flecha = filaCurso.querySelector(".botonFlecha");
       flecha.addEventListener("click", () => {
-        window.location.href = curso.url;
+        window.location.href =  `./cursos/modeloC.html?id=${curso.id}`;
       });
 
 

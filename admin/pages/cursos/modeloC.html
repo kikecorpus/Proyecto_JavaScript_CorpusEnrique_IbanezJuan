@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalle del Curso</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../../csspages/style.css"/>
+</head>
+<body>
+  <div class="contenedorDePagina">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img src="../../../recursos/img/img/diminutivo1.png" class="diminutivo" />
+      <nav class="nav flex-column">
+        <div class="contenedorRecientes">
+          <div class="nav-link active"><a href="../cursos.html">Cursos</a></div>
+          <div class="nav-link"><a href="../docentes/docente.html">Docentes</a></div>
+          <div class="nav-link"><a href="../estudiantes/estudiantes.html">Estudiantes</a></div>
+        </div>
+
+        <h2>Modulos</h2>
+        <div class="contenedorRecientes" id="contenedorModulos"></div>
+      </nav>
+    </div>
+
+    <!-- Principal -->
+    <div class="principal">
+
+      <!-- Encabezado -->
+      <div class="encabezado">
+
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navegadores">
+                <div class="pages">
+                  <a class="nav-link active" href="../../panel.html">Panel</a>
+                  <a class="nav-link" href="../cursos.html">Cursos</a>
+                </div>
+
+                <div class="botonesH">
+                  <img src="../../../recursos/img/componentes/toggle2-off.svg" alt="">
+                  <img src="../../../recursos/img/componentes/bell-fill.svg" alt="">
+                  <img src="../../../recursos/img/componentes/tools.svg" alt="">
+                  <img src="../../../recursos/img/componentes/person-circle.svg" alt="">
+                  <p>Admin</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+              <!-- Cuerpo -->
+      <div class="cuerpo">
+        <div class="dashboard">
+          
+          <div class="portadaCurso">
+            <img id="portadaImg" src="" alt="Portada del curso">
+            <h2 id="tituloCurso">…</h2>
+          </div>
+          <div class="descripcion">
+            <p id="descripcionCurso">…</p>
+          </div>
+
+          <h2>Lecciones</h2>
+          <div class="contenedorDeTablaL">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Fecha Inicio</th>
+                  <th>Fecha Fin</th>
+                </tr>
+              </thead>
+              <tbody id="tablaLecciones"></tbody>
+            </table>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-primary botones" id="btnModificar">Modificar</button>
+            <button type="button" class="btn btn-danger botones" id="btnEliminar">Eliminar</button>
+            <button type="button" class="btn btn-secondary botones" id="btnEstudiantes">Estudiantes</button>
+          </div>
+        </div>
+
+        <!-- Sidebar 2 -->
+        <div class="sidebarCuerpo">
+          <h2>Tablero del Curso</h2>
+          <div class="estadisticas">
+            <div class="cuadroEstadistica">
+              <p class="titulito">Estudiantes Registrados</p>
+              <p class="infoEstadistica" id="statEstudiantes">—</p>
+            </div>
+            <div class="cuadroEstadistica">
+              <p class="titulito">Progreso del Curso</p>
+              <p class="infoEstadistica" id="statProgreso">—</p>
+            </div>
+            <div class="cuadroEstadistica">
+              <p class="titulito">Tareas Pendientes</p>
+              <p class="infoEstadistica" id="statTareas">—</p>
+            </div>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary botones" id="btnNotas">Notas</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./modeloC.js"></script>
+</body>
+</html>

@@ -4,10 +4,8 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
-let data= [];
-let listaAdministradores = [];
+
 let listaEstudiantes = [];
-let listaDocentes = [];
 
     //tablas
 let tablaEstudiante = document.getElementById("tablaEstudiantes");
@@ -18,12 +16,12 @@ let  contexto2D = canvas.getContext("2d");
 //creacion de sistema de informacion 
     //link api respuesta completa 
 
-const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios";
 
   // Funciones de Fetch
 
-  async function fetchData() {
-        const res = await fetch(url, {
+
+async function fetchEstudiantes() {
+        const res = await fetch("https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios", {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,21 +29,11 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
         });
 
 
-        data = await res.json();
+        listaEstudiantes = await res.json();
 
-        console.log(data)
-
-
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
         console.log(listaEstudiantes)
-    }   
-
+       
+    }  
 
 function estudiantesInscritos(){
 
@@ -100,7 +88,7 @@ function verGrafica(){
 
 //algoritmo
 
-await fetchData();
+await fetchEstudiantes();
 estudiantesInscritos()
 verGrafica()
 
