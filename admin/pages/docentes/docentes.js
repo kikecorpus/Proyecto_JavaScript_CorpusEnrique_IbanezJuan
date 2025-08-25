@@ -3,13 +3,10 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 //varibles globales
     //Data
-let data= []
-let listaAdministradores = [];
-let listaEstudiantes = [];
 let listaDocentes = [];
 
     //tablas
-let tablaCursos = document.getElementById("tablaCursos");
+let tablaDocentes = document.getElementById("tablaDocentes");
     //grafica panel
 const canvas = document.getElementById("grafica");
 let  contexto2D = canvas.getContext("2d");
@@ -17,11 +14,11 @@ let  contexto2D = canvas.getContext("2d");
 //creacion de sistema de informacion 
     //link api respuesta completa 
 
-const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios";
+const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/docentes";
 
   // Funciones de Fetch
 
-  async function fetchData() {
+  async function fetchDocentes() {
         const res = await fetch(url, {
             method: 'GET',
             headers: {
@@ -30,20 +27,11 @@ const url=  "https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuari
         });
 
 
-        data = await res.json();
+        listaDocentes = await res.json();
 
-        console.log(data)
-
-
-        listaAdministradores = data[0].administradores;
-        console.log(listaAdministradores);
-
-        listaDocentes = data[0].docentes;
-        console.log(listaDocentes);
-
-        listaEstudiantes = data[0].estudiantes;
-        console.log(listaEstudiantes)
+        console.log(listaDocentes)
     }   
+
 
 function listadoDocentes(){
 
@@ -64,18 +52,16 @@ function listadoDocentes(){
         
       const flecha = filaCurso.querySelector(".botonFlecha");
       flecha.addEventListener("click", () => {
-        window.location.href = docente.url;
+        window.location.href = `./perfilDocente.html?id=${docente.id}`;
       });
 
-
-        tablaCursos.appendChild(filaCurso);
+        tablaDocentes.appendChild(filaCurso);
       });
     } catch (error) {
       console.error("Error al traer usuarios:", error);
     }
   
 }
-
 
 //graficas
 
@@ -106,7 +92,7 @@ function verGrafica(){
 
 //algoritmo
 
-await fetchData();
+await fetchDocentes();
 listadoDocentes()
 verGrafica()
 
