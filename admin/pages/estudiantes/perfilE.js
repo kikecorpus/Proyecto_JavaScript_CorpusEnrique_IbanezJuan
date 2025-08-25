@@ -50,19 +50,19 @@ function PerfilDocentes(){
 
     try {
      
-      listaDocentes.forEach((docente) => {
+      listaEstudiantes.forEach((estudiante) => {
 
 
-        console.log(docente)
+        console.log(estudiante)
         cuadroFPerfil.innerHTML = `
-          <div><img class="fp" src="${docente.foto}" width="200" style="border-radius: 50%;" ">
+          <div><img class="fp" src="${estudiante.foto}" width="200" style="border-radius: 50%;" ">
           </div>
           
           <div>
-            <p> Nombre: ${docente.nombre} </p>
-            <p> Usuario: ${docente.usuario} </p>
-            <p> Fecha de inicio: ${docente.fechaInicio}</p>
-            <p> Estado: ${docente.estado}</p>
+            <p> Nombre: ${estudiante.nombre} </p>
+            <p> Usuario: ${estudiante.usuario} </p>
+            <p> Fecha de inicio: ${estudiante.fechaInicio}</p>
+            <p> Estado: ${estudiante.estado}</p>
           </div>
         `;
 
@@ -71,17 +71,18 @@ function PerfilDocentes(){
             
             <thead>
               <tr>
-                <th>cursos</th>
-                <th>Estudiantes</th>
+                <th>Cursos Inscritos</th>
+                <th>Cursos Aprobados</th>
                 <th>Lecciones</th>
               </tr>
             </thead>
 
             <tbody id="tablaCursos">
-             <td>${docente.cursosACargo[0]}, ${docente.cursosACargo[1]}</td>
-              
-              <td>30</td>
+             <td>${estudiante.cursosInscritos}</td>
+             <td>${estudiante.cursosCompletados}</td>
               <td>6</td>
+              
+
                 
             </tbody>
              
@@ -91,10 +92,7 @@ function PerfilDocentes(){
         
         `
         
-      const flecha = filaCurso.querySelector(".botonFlecha");
-      flecha.addEventListener("click", () => {
-        window.location.href = docente.url;
-      });
+    
 
 
         tablaCursos.appendChild(filaCurso);

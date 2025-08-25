@@ -59,8 +59,13 @@ function estudiantesInscritos(){
            <td>${usuario.nombre}</td>
           <td>${usuario.identificacion}</td>
           <td>Estudiante</td>
-          <td>${usuario.usuario}</td>
+          <td><img src="../../../recursos/img/componentes/arrow-right-square-fill.svg" alt="" class="botonFlecha"></td>
         `;
+
+        const flecha = filaEstudiante.querySelector(".botonFlecha");
+        flecha.addEventListener("click", () => {
+        window.location.href = "./perfilEstudiante.html";
+      });
 
         tablaEstudiante.appendChild(filaEstudiante);
       });
