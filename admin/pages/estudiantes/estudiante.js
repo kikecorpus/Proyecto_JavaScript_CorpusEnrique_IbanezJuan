@@ -93,11 +93,81 @@ function verGrafica(){
   })
 }
 
+function modalCrearEstudiantes(){
+
+ 
+
+ let botonCrear = document.getElementById("crearEstudiante");
+ let modal = document.getElementById("dashboard");
+
+ botonCrear.addEventListener("click", (e) => { 
+
+  console.log(botonCrear)
+  
+console.log(e)
+
+botonCrear.disabled= true; 
+
+
+  modal.innerHTML= `
+  
+<!-- Modal -->
+
+<h1 class="display-6">Inscripción estudiante</h1>
+  
+  
+    <form id="formInscripcionEstudiante">
+    <div class="row g-2" style="margin-left: 12px; margin-right: 12px">
+      
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label">Nombre del estudiante</label>
+          <input type="text" class="form-control" placeholder="Ingrese nombre completo" />
+        </div>
+      </div>
+
+
+
+    
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label">correo</label>
+          <input type="number" class="form-control" placeholder="correo electrónico" />
+        </div>
+      </div>
+
+ 
+
+      <div class="col-md-12">
+        <div class="mb-3">
+          <label class="form-label">cedula de ciudadnia/tarjeta de identidad</label>
+          <input type="text" class="form-control" placeholder="cedula de ciudadnia/tarjeta de identidad" />
+        </div>
+      </div>
+
+      
+
+      <!-- Botones -->
+      <button class="btn btn-warning btn-buttom-left">Cancelar</button>
+      <button type="submit" class="btn btn-warning btn-buttom-right">Aceptar</button>
+    </div>
+  </form>
+
+
+
+    
+  `
+ });
+
+}
+
+
 //algoritmo
 
 await fetchEstudiantes();
-estudiantesInscritos()
-verGrafica()
+estudiantesInscritos();
+verGrafica();
+modalCrearEstudiantes();
 
 });
 
