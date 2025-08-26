@@ -125,11 +125,6 @@ canvas{
     color: var(--color-componentes);
 }
 
-.encabezado a:active {
-
-    color: var(--color-componentes);
-}
-
 .navegadores{
     display:flex ;
     flex-direction: row;
@@ -329,5 +324,4 @@ table img {
     text-align: left;
     gap: 2rem;
     padding: 2rem;
-    align-items: ce;
 }
