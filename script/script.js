@@ -79,15 +79,17 @@ async function login(){
     perfil = inputTipoUsuario.value;
     let usuario = inputUsuario.value;
     let contrasena = inputContrasena.value;
-
+    
 
     if (perfil === "1") {
       usuarioEncontrado = listaAdministradores.find(u => u.usuario === usuario && u.contrasena === contrasena);
+
     
         //validacion
         if (usuarioEncontrado) {
-            let usuarioId = usuarioEncontrado.id;
-        window.location.href = `../admin/panel.html?id=""`; 
+
+            localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
+            window.location.href = `../admin/panel.html`; 
             console.log("ingreso exitoso")
 
         }

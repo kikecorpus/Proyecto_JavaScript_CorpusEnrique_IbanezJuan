@@ -18,8 +18,8 @@
   --fuente-titulo: 'interSemiBold';
   --fuente-cuerpo: 'interRegular';
   --fuente-titulo-italic: 'interSemiBoldItalic';
-  --fuente-titulo-size: 20px;
-  --fuente-cuerpo-size: 15px;
+  --fuente-titulo-size: 1.5vw;
+  --fuente-cuerpo-size: 1vw;
   --fuente-smallsize: 10px;
 
 }

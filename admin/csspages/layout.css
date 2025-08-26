@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-size: var(--fuente-cuerpo-size);
  }
                     /*PAnel */
 /* index*/
@@ -11,6 +12,7 @@
     flex-direction: column;
     width: 100%;
     height: 100vh;
+  
  }
 
 .contenedorDePagina{
@@ -32,12 +34,13 @@ h2{
 .sidebar{
 display: flex;
 flex-direction: column;
-width: 30vw;
+max-width: 30vw;
 height: 100vh;
 background-color: var(--color-sidebar);
 align-items: center;
 gap: 4rem;
-padding: 3rem 0;
+padding: 3rem 0; 
+color: var(--color-texto) !important;
 }
 
 .sidebar nav {
@@ -60,6 +63,24 @@ padding: 3rem 0;
     border-bottom: 0.5px solid black;
 }
 
+.sidebar nav div:hover {
+
+    color: var(--color-componentes);
+}
+
+.sidebar nav a {
+
+    text-decoration: none;
+    color: var(--color-texto);
+
+}
+
+.sidebar nav p:hover {
+
+    text-decoration: none;
+    color: var(--color-componentes);
+}
+
 .contenedorDeGrafica{
 
     background: none !important; 
@@ -68,8 +89,8 @@ padding: 3rem 0;
 
 /*grafica*/
 canvas{ 
-    width:20Vw;
-    height: 15vw;
+    width: 16vw;
+
     border: 1px solid black;
     background-color: white;
 }
@@ -89,7 +110,24 @@ canvas{
     display: flex;
     flex-direction: row;
     width: 100%;
+    color: var(--color-texto2);
+
    
+}
+.encabezado a {
+
+    color: var(--color-texto2);
+    text-decoration: none;
+}
+
+.encabezado a:hover {
+
+    color: var(--color-componentes);
+}
+
+.encabezado a:active {
+
+    color: var(--color-componentes);
 }
 
 .navegadores{
@@ -135,6 +173,13 @@ background-color: none;
     width: 1.5rem;
 }
 
+.navegadores img:hover {
+
+    background-color: var(--color-componentes);
+    border-radius: 50%;
+    width: 1.7rem;
+}
+
     /*cuerpo*/
 .cuerpo{
 
@@ -171,6 +216,8 @@ table{
 
 table img {
     border-radius: 50%;
+    width:2vw;
+    height: 2vw;
 }
 
 /*sidebar Cuerpo */
@@ -278,9 +325,9 @@ table img {
 
     display: flex;
     flex-direction: row;
-    height: 15rem;
+    height: auto;
     text-align: left;
     gap: 2rem;
     padding: 2rem;
-    align-items: center;
+    align-items: ce;
 }
