@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-<link href="form-docentes.css">
-<style>
+    <link rel="stylesheet" href="form-docente.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" 
+          crossorigin="anonymous">
+
+    <style>
       .btn-buttom-left {
         left: 20px;
         bottom: 20px;
@@ -18,56 +26,61 @@
         position: fixed;
         width: 20%;
       }
+      body{
+       background-color: darkorange;
+       
+        text-align: center;
+      }
+    
     </style>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" 
-          rel="stylesheet" 
-          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" 
-          crossorigin="anonymous">
-
-
 </head>
 <body>
+ 
+    <h1 class="display-6"></h1>
   
-    <h1 class="display-6">Inscripción Docentes</h1>
   
-  
-    <form id="formInscripcionDocentes">
+    <form id="docente nombre completo">
     <div class="row g-2" style="margin-left: 12px; margin-right: 12px">
       
       <div class="col-md-12">
         <div class="mb-3">
           <label class="form-label">Nombre completo</label>
-          <input type="text" class="form-control" placeholder="Ingrese su nombre" />
+          <input type="text" class="form-control" placeholder="Ingrese nombre del docente" />
         </div>
       </div>
 
+      
+    </div class="col-md-12">
+      <div class="mb-3">
+        <label class="form-label">"cedula de ciudadnia"</label>
+        <input type="number" class="form-control" placeholder="inserte su numero de cedula" />
+      </div>
+    </div>
+
+
+
+      
+    
       <div class="col-md-12">
         <div class="mb-3">
           <label class="form-label">Cédula</label>
-          <input type="number" class="form-control" placeholder="Ingrese su cédula" />
+          <input type="number" class="form-control" placeholder="correo electrónico" />
         </div>
       </div>
 
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" placeholder="Ingrese su correo electrónico" />
-        </div>
-      </div>
+ 
 
       <div class="col-md-12">
         <div class="mb-3">
-          <label class="form-label">Area especializada</label>
-          <input type="text" class="form-control" placeholder="Ingrese su area especializada" />
+          <label class="form-label">area de especializacion</label>
+          <input type="text" class="form-control" placeholder="area especializacion" />
         </div>
       </div>
 
       
 
       <!-- Botones -->
-      <button class="btn-warning btn-buttom-left">Cancelar</button>
+      <button class="btn btn-warning btn-buttom-left">Cancelar</button>
       <button type="submit" class="btn btn-warning btn-buttom-right">Aceptar</button>
     </div>
   </form>
@@ -75,10 +88,16 @@
 
   
     <script>
-    document.getElementById("formInscripcionDocentes")
+    document.getElementById("formInscripcionLe")
       .addEventListener("submit", function (event) {
         location.reload();
       });
   </script>
 </body>
 </html>
+
+
+
+
+
+
