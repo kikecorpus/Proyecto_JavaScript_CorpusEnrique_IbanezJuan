@@ -109,50 +109,87 @@ botonCrear.disabled= true;
   
 <!-- Modal -->
 
-<h1 class="display-6">Inscripción estudiante</h1>
-  
-  
-    <form id="formInscripcionEstudiante">
-    <div class="row g-2" style="margin-left: 12px; margin-right: 12px">
-      
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">Nombre del estudiante</label>
-          <input type="text" class="form-control" placeholder="Ingrese nombre completo" />
-        </div>
-      </div>
+<form id="formRegistroDocente" class="container">
+  <div class="row g-3">
 
-
-
-    
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">correo</label>
-          <input type="number" class="form-control" placeholder="correo electrónico" />
-        </div>
-      </div>
-
- 
-
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">cedula de ciudadnia/tarjeta de identidad</label>
-          <input type="text" class="form-control" placeholder="cedula de ciudadnia/tarjeta de identidad" />
-        </div>
-      </div>
-
-      
-
-      <!-- Botones -->
-      <button class="btn btn-warning btn-buttom-left">Cancelar</button>
-      <button type="submit" class="btn btn-warning btn-buttom-right">Aceptar</button>
+    <!-- Nombre -->
+    <div class="col-md-12">
+      <label for="nombreDocente" class="form-label">Nombre del docente</label>
+      <input type="text" id="nombreDocente" name="nombreDocente" class="form-control" placeholder="Ingrese nombre completo" required />
     </div>
-  </form>
 
+    <!-- Correo -->
+    <div class="col-md-12">
+      <label for="correoDocente" class="form-label">Correo electrónico</label>
+      <input type="email" id="correoDocente" name="correoDocente" class="form-control" placeholder="correo@ejemplo.com" required />
+    </div>
 
+    <!-- Contraseña -->
+    <div class="col-md-12">
+      <label for="contrasenaDocente" class="form-label">Contraseña</label>
+      <input type="password" id="contrasenaDocente" name="contrasenaDocente" class="form-control" placeholder="Cree una contraseña" required />
+    </div>
 
-    
+    <!-- Foto -->
+    <div class="col-md-12">
+      <label for="fotoDocente" class="form-label">Foto (URL)</label>
+      <input type="url" id="fotoDocente" name="fotoDocente" class="form-control" placeholder="https://..." />
+    </div>
+
+    <!-- Cursos a cargo -->
+    <div class="col-md-12">
+      <label for="cursosACargo" class="form-label">Cursos a cargo</label>
+      <input type="text" id="cursosACargo" name="cursosACargo" class="form-control" placeholder="Ej: Calistenia, Yoga, Pilates" />
+      <small class="text-muted">Escribe los cursos separados por coma</small>
+    </div>
+
+    <!-- Botones -->
+    <div class="col-12 d-flex justify-content-between mt-4">
+      <button type="reset" class="btn btn-secondary">Cancelar</button>
+      <button type="submit" class="btn btn-warning">Registrar</button>
+    </div>
+  </div>
+</form>
+
   `
+
+  const formDocente = document.getElementById("formRegistroDocente");
+
+  formDocente.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const hoy = new Date();
+    const fechaInicio = `${String(hoy.getDate()).padStart(2, "0")}/${String(hoy.getMonth() + 1).padStart(2, "0")}/${hoy.getFullYear()}`;
+
+    const nuevoDocente = {
+      nombre: document.getElementById("nombreDocente").value,
+      usuario: document.getElementById("correoDocente").value,
+      contrasena: document.getElementById("contrasenaDocente").value,
+      foto: document.getElementById("fotoDocente").value || "https://randomuser.me/api/portraits/men/44.jpg",
+      cursosACargo: document.getElementById("cursosACargo").value.split(",").map(c => c.trim()).filter(c => c !== ""),
+      url: "./perfilDocente.html",   
+      fechaInicio: fechaInicio,   
+      estado: "activo"              
+    };
+
+    try {
+      const res = await fetch("https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/docentes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevoDocente)
+      });
+
+
+      const data = await res.json();
+      alert(" Docente registrado con éxito: " + data.nombre);
+
+      formDocente.reset();
+    } catch (err) {
+      console.error(" Error:", err);
+      alert("Ocurrió un error al registrar el docente");
+    }
+  });
+
  });
 
 }

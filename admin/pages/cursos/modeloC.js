@@ -78,4 +78,77 @@ document.addEventListener("DOMContentLoaded", async () => {
       tablaLecciones.appendChild(tr);
     });
   }
+
+
+ //Botón Modificar
+  const btnModificar = document.getElementById("btnModificar");
+  const formEditar = document.getElementById("formEditarCurso");
+
+  btnModificar.addEventListener("click", () => {
+    // llenar formulario
+    document.getElementById("nombreCurso").value = curso.nombre;
+    document.getElementById("descripcionCursoInput").value = curso.descripcion;
+    document.getElementById("fotoCurso").value = curso.foto;
+
+    // abrir modal
+    const modalEditar = new bootstrap.Modal(document.getElementById("modalEditarCurso"));
+    modalEditar.show();
+  });
+
+  // guardar cambios 
+  formEditar.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const cursoEditado = { ...curso,
+      nombre: document.getElementById("nombreCurso").value,
+      descripcion: document.getElementById("descripcionCursoInput").value,
+      foto: document.getElementById("fotoCurso").value,
+    };
+
+    try {
+      const res = await fetch(`${baseUrl}/${cursoId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cursoEditado),
+      });
+
+      if (res.ok) {
+        alert("Curso actualizado correctamente");
+        window.location.reload();
+      } else {
+        alert("Error al actualizar curso");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  });
+
+
+const btnEliminar = document.getElementById("btnEliminar");
+
+btnEliminar.addEventListener("click", async () => {
+  if (confirm("¿Estás seguro de eliminar este curso?")) {
+    try {
+      const response = await fetch(`${baseUrl}/${cursoId}`, {
+        method: "DELETE"
+      });
+
+      if (response.ok) {
+        alert("Curso eliminado correctamente ");
+        window.location.href = "../cursos.html";
+      } else {
+        alert("Error al eliminar el curso");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Hubo un problema con el servidor");
+    }
+  }
+});
+
+
+
+
 });

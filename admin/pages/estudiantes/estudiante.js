@@ -113,50 +113,120 @@ botonCrear.disabled= true;
   
 <!-- Modal -->
 
-<h1 class="display-6">Inscripción estudiante</h1>
-  
-  
-    <form id="formInscripcionEstudiante">
-    <div class="row g-2" style="margin-left: 12px; margin-right: 12px">
-      
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">Nombre del estudiante</label>
-          <input type="text" class="form-control" placeholder="Ingrese nombre completo" />
-        </div>
-      </div>
+<h1 class="display-6 text-center mb-4">Inscripción estudiante</h1>
 
-
-
+<form id="formInscripcionEstudiante" class="container">
+  <div class="row g-3">
     
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">correo</label>
-          <input type="number" class="form-control" placeholder="correo electrónico" />
-        </div>
-      </div>
-
- 
-
-      <div class="col-md-12">
-        <div class="mb-3">
-          <label class="form-label">cedula de ciudadnia/tarjeta de identidad</label>
-          <input type="text" class="form-control" placeholder="cedula de ciudadnia/tarjeta de identidad" />
-        </div>
-      </div>
-
-      
-
-      <!-- Botones -->
-      <button class="btn btn-warning btn-buttom-left">Cancelar</button>
-      <button type="submit" class="btn btn-warning btn-buttom-right">Aceptar</button>
+    <!-- nommbre -->
+    <div class="col-md-12">
+      <label for="nombre" class="form-label">Nombre del estudiante</label>
+      <input 
+        type="text" 
+        id="nombre" 
+        name="nombre" 
+        class="form-control" 
+        placeholder="Ingrese nombre completo" 
+        required
+      />
     </div>
-  </form>
+
+    <!-- correo -->
+    <div class="col-md-12">
+      <label for="correo" class="form-label">Correo electrónico</label>
+      <input 
+        type="email" 
+        id="correo" 
+        name="correo" 
+        class="form-control" 
+        placeholder="correo@ejemplo.com" 
+        required
+      />
+    </div>
+
+    <!-- identificación -->
+    <div class="col-md-12">
+      <label for="identificacion" class="form-label">Cédula/Tarjeta de identidad</label>
+      <input 
+        type="text" 
+        id="identificacion" 
+        name="identificacion" 
+        class="form-control" 
+        placeholder="Número de documento" 
+        required
+      />
+    </div>
+
+    <!-- contraseña -->
+    <div class="col-md-12">
+      <label for="contrasena" class="form-label">Contraseña</label>
+      <input 
+        type="password" 
+        id="contrasena" 
+        name="contrasena" 
+        class="form-control" 
+        placeholder="Cree una contraseña" 
+        required
+      />
+    </div>
+
+    <!-- foto -->
+    <div class="col-md-12">
+      <label for="foto" class="form-label">Foto (URL)</label>
+      <input 
+        type="url" 
+        id="foto" 
+        name="foto" 
+        class="form-control" 
+        placeholder="https://..."
+      />
+    </div>
+
+    <!-- botoness -->
+    <div class="col-12 d-flex justify-content-between mt-4">
+      <button type="reset" class="btn btn-secondary">Cancelar</button>
+      <button type="submit" class="btn btn-warning">Aceptar</button>
+    </div>
+  </div>
+</form>
 
 
 
     
   `
+
+  const formularioEstudiante = document.getElementById("formInscripcionEstudiante");
+
+  formularioEstudiante.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    //formulario
+    const nuevoUsuario = {
+      nombre: document.getElementById("nombre").value,
+      usuario: document.getElementById("correo").value,
+      contrasena: document.getElementById("contrasena").value,
+      foto: document.getElementById("foto").value || "https://randomuser.me/api/portraits/lego/1.jpg",
+      identificacion: document.getElementById("identificacion").value,
+      cursosInscritos: [],
+      cursosCompletados: []
+    };
+
+    try {
+      const res = await fetch("https://68a35617c5a31eb7bb1ff133.mockapi.io/Academiaswbar400/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevoUsuario)
+      });
+
+      const data = await res.json();
+      alert("Estudiante registrado con éxito: " + data.nombre);
+
+      formularioEstudiante.reset(); 
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Ocurrió un error al registrar el estudiante");
+    }
+  })
  });
 
 }

@@ -90,9 +90,47 @@
           <div class="d-flex gap-2">
             <button type="button" class="btn btn-primary botones" id="btnModificar">Modificar</button>
             <button type="button" class="btn btn-danger botones" id="btnEliminar">Eliminar</button>
-            <button type="button" class="btn btn-secondary botones" id="btnEstudiantes">Estudiantes</button>
           </div>
+
+          <div class="modal fade" id="modalEditarCurso" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Curso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formEditarCurso">
+          <div class="mb-3">
+            <label for="nombreCurso" class="form-label">Nombre</label>
+            <input type="text" id="nombreCurso" name="nombre" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="descripcionCursoInput" class="form-label">Descripción</label>
+            <textarea id="descripcionCursoInput" name="descripcion" class="form-control" required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="fotoCurso" class="form-label">URL Foto</label>
+            <input type="text" id="fotoCurso" name="foto" class="form-control" required>
+          </div>
+
+          <!-- aquí podrías agregar inputs dinámicos para módulos y lecciones si quieres editarlos -->
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
         </div>
+
+
 
         <!-- Sidebar 2 -->
         <div class="sidebarCuerpo">

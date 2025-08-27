@@ -24,3 +24,13 @@
 
 }
 
+body.modoOscuro {
+ 
+  --color-fondo: #B3B0B0; 
+  --color-sidebar: #565554;
+  --color-texto: #ffffff; 
+  --color-texto2: #ffffff; 
+
+  --color-tarjeta: #565554; /* puedes alternar con #797979 */
+  --color-componentes: #A1A1A1;
+}

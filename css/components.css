@@ -24,11 +24,16 @@
 
     width: 10rem;
     margin-top: 1.6rem;
+  
 }
 
-#crearCurso{
-
-    margin-top: 13.1rem;
-}
 
 /*info del curso*/
+
+#crearDocente{
+  width: 10rem;
+    margin-top: 1.6rem;
+    
+
+
+}
