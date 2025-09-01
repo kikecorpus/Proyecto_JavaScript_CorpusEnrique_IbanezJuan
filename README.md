@@ -5,5 +5,11 @@ Este proyecto consiste en el desarrollo de un **sistema de gestión del aprendiz
 
 El objetivo principal es brindar a **administradores, docentes y estudiantes** una herramienta que facilite la creación, gestión y seguimiento de cursos, lecciones y evaluaciones, con una interfaz intuitiva y personalizable.
 
+Login: 
+
+Tipo: ADMINISTRADOR
+Usuario: pedro.gomez@swbar400.com  
+contraseñna: 0000
+
 
 Sustentacion en Video : https://drive.google.com/file/d/1Ue-6Q8feqwqWXV_qRkIn4GyIfDMrG1Sh/view?usp=drive_link 
